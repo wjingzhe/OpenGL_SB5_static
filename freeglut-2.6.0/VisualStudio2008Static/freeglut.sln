@@ -71,6 +71,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pyramid_jingz", "..\..\Sb5C
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pyramid", "..\..\Sb5Codes\Chapter05\Pyramid\Pyramid.vcxproj", "{614F84F4-5DBF-47AE-B74D-B4184D22ADA2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tunnel_jingz", "..\..\Sb5Codes\Chapter05\Tunnel_jingz\Tunnel_jingz.vcxproj", "{428D2B5E-586D-46E0-9213-342A721998CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -205,6 +207,10 @@ Global
 		{614F84F4-5DBF-47AE-B74D-B4184D22ADA2}.Debug|Win32.Build.0 = Debug|Win32
 		{614F84F4-5DBF-47AE-B74D-B4184D22ADA2}.Release|Win32.ActiveCfg = Release|Win32
 		{614F84F4-5DBF-47AE-B74D-B4184D22ADA2}.Release|Win32.Build.0 = Release|Win32
+		{428D2B5E-586D-46E0-9213-342A721998CC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{428D2B5E-586D-46E0-9213-342A721998CC}.Debug|Win32.Build.0 = Debug|Win32
+		{428D2B5E-586D-46E0-9213-342A721998CC}.Release|Win32.ActiveCfg = Release|Win32
+		{428D2B5E-586D-46E0-9213-342A721998CC}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
