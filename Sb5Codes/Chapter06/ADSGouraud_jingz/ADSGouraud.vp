@@ -17,7 +17,8 @@ smooth out vec4 vVaryingColor;
 
 void main(void)
 {
-	// 获取表面法线的视觉坐标,即法线在什么位置，而不是法线本身表示的朝向
+	// normalMatrix 是模型在世界坐标系中的朝向矩阵
+	//作用法线之后，法线就是其在世界坐标中的朝向
 	vec3 vEyeNormal = normalMatrix * vNormal;
 	//顶点相对于世界原点的位置——即世界位置；mv是摄像机（画刷）到模型的3D定位作用矩阵
 	vec4 vPosition4 = mvMatrix * vVertex;
