@@ -151,7 +151,6 @@ void RenderScene(void)
 	glEnable(GL_PROGRAM_POINT_SIZE);//允许点的大小可以修改
 
 	glUseProgram(starFieldShader);
-	//transformPipeLine.GetModelViewProjectionMatrix()
 	
 	glUniformMatrix4fv(locMVP, 1, GL_FALSE, viewFrustum.GetProjectionMatrix());
 	glUniform1i(locTexture, 0);
