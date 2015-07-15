@@ -15,6 +15,8 @@
 #include <GL/glut.h>
 #endif
 
+//博客记录
+
 GLMatrixStack mvpMatrix;
 GLMatrixStack projectionMatrix;
 GLMatrixStack modelViewMatrix;
@@ -213,7 +215,7 @@ void RenderScene(void)
 		//处理画笔位置相关，即模型相对于摄像机的位置
 
 		M3DMatrix44f mCamera;
-		cameraFrame.GetCameraMatrix(mCamera);
+		cameraFrame.GetCameraMatrix(mCamera);//只是获取cameraFrame中记录的位移，没有获得朝向和旋转
 		modelViewMatrix.MultMatrix(mCamera);
 		//modelViewMatrix.Translate(0.0f, -1.0f, -7.0f);
 
