@@ -12,5 +12,6 @@ smooth in float textureCoordinate;
 
 void main(void)
    { 
+   //四种红色，根据顶点的漫放射光强（textureCoordinate）作为纹理坐标添加到一个包含逐渐变亮颜色表的一维纹理
    vFragColor = texture(colorTable, textureCoordinate);
    }
