@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{325F3F45-A602-4C6D-A17A-DE80C1D79B0C}</ProjectGuid>
-    <RootNamespace>PointSprite_jingz</RootNamespace>
+    <ProjectGuid>{FA048892-B72A-4DC0-B3C9-37232874DF2F}</ProjectGuid>
+    <RootNamespace>CubeMap_jingz</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -58,8 +58,6 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\Sb5Codes\GLTools\include;$(SolutionDir)..\include;</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -68,15 +66,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CubeMap.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\..\freeglut-2.6.0\VisualStudio2008Static\freeglut.vcxproj">
       <Project>{71af75a0-52b6-4c1b-8e56-cb31c6741a18}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\GLTools\gltools.vcxproj">
       <Project>{7e98459a-64ae-4734-a537-4ab52ed637e1}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="PointSprite.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

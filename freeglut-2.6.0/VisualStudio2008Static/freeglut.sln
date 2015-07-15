@@ -73,6 +73,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pyramid", "..\..\Sb5Codes\C
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tunnel_jingz", "..\..\Sb5Codes\Chapter05\Tunnel_jingz\Tunnel_jingz.vcxproj", "{428D2B5E-586D-46E0-9213-342A721998CC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dissolve_jingz", "..\..\Sb5Codes\Chapter06\Dissolve_jingz\Dissolve_jingz.vcxproj", "{20B83E3A-E737-4AAB-A9F2-88D0F4995DFB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ToonShader_jingz", "..\..\Sb5Codes\Chapter06\ToonShader_jingz\ToonShader_jingz.vcxproj", "{1ADEAAFD-F7C0-4647-928A-DC588536C1B9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextureRect_jingz", "..\..\Sb5Codes\Chapter07\TextureRect_jingz\TextureRect_jingz.vcxproj", "{653B704E-C350-4996-BE6D-55674F2580E2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CubeMap_jingz", "..\..\Sb5Codes\Chapter07\CubeMap_jingz\CubeMap_jingz.vcxproj", "{FA048892-B72A-4DC0-B3C9-37232874DF2F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CubeMapped", "..\..\Sb5Codes\Chapter07\CubeMapped\CubeMapped.vcxproj", "{7E764862-1C1C-42D2-8F16-0AF6D7F43DF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -211,6 +221,26 @@ Global
 		{428D2B5E-586D-46E0-9213-342A721998CC}.Debug|Win32.Build.0 = Debug|Win32
 		{428D2B5E-586D-46E0-9213-342A721998CC}.Release|Win32.ActiveCfg = Release|Win32
 		{428D2B5E-586D-46E0-9213-342A721998CC}.Release|Win32.Build.0 = Release|Win32
+		{20B83E3A-E737-4AAB-A9F2-88D0F4995DFB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{20B83E3A-E737-4AAB-A9F2-88D0F4995DFB}.Debug|Win32.Build.0 = Debug|Win32
+		{20B83E3A-E737-4AAB-A9F2-88D0F4995DFB}.Release|Win32.ActiveCfg = Release|Win32
+		{20B83E3A-E737-4AAB-A9F2-88D0F4995DFB}.Release|Win32.Build.0 = Release|Win32
+		{1ADEAAFD-F7C0-4647-928A-DC588536C1B9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1ADEAAFD-F7C0-4647-928A-DC588536C1B9}.Debug|Win32.Build.0 = Debug|Win32
+		{1ADEAAFD-F7C0-4647-928A-DC588536C1B9}.Release|Win32.ActiveCfg = Release|Win32
+		{1ADEAAFD-F7C0-4647-928A-DC588536C1B9}.Release|Win32.Build.0 = Release|Win32
+		{653B704E-C350-4996-BE6D-55674F2580E2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{653B704E-C350-4996-BE6D-55674F2580E2}.Debug|Win32.Build.0 = Debug|Win32
+		{653B704E-C350-4996-BE6D-55674F2580E2}.Release|Win32.ActiveCfg = Release|Win32
+		{653B704E-C350-4996-BE6D-55674F2580E2}.Release|Win32.Build.0 = Release|Win32
+		{FA048892-B72A-4DC0-B3C9-37232874DF2F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FA048892-B72A-4DC0-B3C9-37232874DF2F}.Debug|Win32.Build.0 = Debug|Win32
+		{FA048892-B72A-4DC0-B3C9-37232874DF2F}.Release|Win32.ActiveCfg = Release|Win32
+		{FA048892-B72A-4DC0-B3C9-37232874DF2F}.Release|Win32.Build.0 = Release|Win32
+		{7E764862-1C1C-42D2-8F16-0AF6D7F43DF7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7E764862-1C1C-42D2-8F16-0AF6D7F43DF7}.Debug|Win32.Build.0 = Debug|Win32
+		{7E764862-1C1C-42D2-8F16-0AF6D7F43DF7}.Release|Win32.ActiveCfg = Release|Win32
+		{7E764862-1C1C-42D2-8F16-0AF6D7F43DF7}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
