@@ -21,6 +21,7 @@ GLGeometryTransform transformPipeLine;
 GLTriangleBatch sphereBatch;
 GLBatch cubeBatch;
 
+GLuint tarnishTexture;
 GLuint cubeTexture;
 GLuint reflectionShader;
 GLuint skyBoxShader;
@@ -29,6 +30,8 @@ GLint locMVPReflect;
 GLint locMVReflect;
 GLint locNormalReflect;
 GLint locInvertedCamera;
+
+GLint locCubeMap, locTarnishMap;
 
 GLint locMVPSkyBox;
 
@@ -66,7 +69,21 @@ void SetupRC(void)
 
 	glCullFace(GL_BACK);
 	glEnable(GL_DEPTH_TEST);
-	
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
+	// Load the tarnish texture
+	glGenTextures(1, &tarnishTexture);
+	glBindTexture(GL_TEXTURE_2D, tarnishTexture);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+	pBytes = gltReadTGABits("tarnish.tga", &nWidth, &nHeight, &nComponent, &eFormat);
+	glTexImage2D(GL_TEXTURE_2D, 0, nComponent, nWidth, nHeight, 0, eFormat, GL_UNSIGNED_BYTE, pBytes);
+	free(pBytes);
+	glGenerateMipmap(GL_TEXTURE_2D);
+
 	glGenTextures(1, &cubeTexture);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, cubeTexture);
 
@@ -76,7 +93,7 @@ void SetupRC(void)
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 
-	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+	
 
 	for (size_t i = 0; i < 6; ++i)
 	{
@@ -92,18 +109,33 @@ void SetupRC(void)
 	gltMakeSphere(sphereBatch, 1.0f, 52, 26);
 	gltMakeCube(cubeBatch, 20.0f);
 
-	reflectionShader = gltLoadShaderPairWithAttributes("Reflection.vp", "Reflection.fp", 2, GLT_ATTRIBUTE_VERTEX, "vVertex", GLT_ATTRIBUTE_NORMAL, "vNormal");
+	reflectionShader = gltLoadShaderPairWithAttributes("Reflection.vp", "Reflection.fp", 3, 
+		GLT_ATTRIBUTE_VERTEX, "vVertex", 
+		GLT_ATTRIBUTE_NORMAL, "vNormal", 
+		GLT_ATTRIBUTE_TEXTURE0, "vTexCoords");
 	//uniform值绑定
 	locMVPReflect = glGetUniformLocation(reflectionShader, "mvpMatrix");
 	locMVReflect = glGetUniformLocation(reflectionShader, "mvMatrix");
 	locNormalReflect = glGetUniformLocation(reflectionShader, "normalMatrix");
 	locInvertedCamera = glGetUniformLocation(reflectionShader, "mInverseCamera");
 
+	locCubeMap = glGetUniformLocation(reflectionShader, "cubeMap");
+	locTarnishMap = glGetUniformLocation(reflectionShader, "tarnishMap");
+
 	skyBoxShader = gltLoadShaderPairWithAttributes("skyBox.vp", "skyBox.fp", 1, GLT_ATTRIBUTE_VERTEX, "vVertex");
 	//uniform值绑定
 
 	locMVPSkyBox = glGetUniformLocation(skyBoxShader, "mvpMatrix");
 
+
+	//启用两段纹理 与顶点着色器输入输出的纹理数组对应
+	// glUniform1i(locCubeMap, 0);
+	// glUniform1i(locTarnishMap, 1);
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, tarnishTexture);
+
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, cubeTexture);
 }
 
 void RenderScene(void)
@@ -128,6 +160,9 @@ void RenderScene(void)
 		glUniformMatrix4fv(locMVPReflect, 1, GL_FALSE, transformPipeLine.GetModelViewProjectionMatrix());
 		glUniformMatrix3fv(locNormalReflect, 1, GL_FALSE, transformPipeLine.GetNormalMatrix());
 		glUniformMatrix4fv(locInvertedCamera, 1, GL_FALSE, mInverseCamera);
+
+		glUniform1i(locCubeMap, 0);
+		glUniform1i(locTarnishMap, 1);
 
 		glEnable(GL_CULL_FACE);
 		sphereBatch.Draw();
@@ -169,6 +204,7 @@ void SpecialKeys(int key, int x, int y)
 
 void ShutdownRC(void)
 {
+	glDeleteTextures(1, &tarnishTexture);
 	glDeleteTextures(1, &cubeTexture);
 	glDeleteProgram(reflectionShader);
 	glDeleteProgram(skyBoxShader);
