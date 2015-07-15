@@ -17,6 +17,8 @@ smooth out vec4 vVaryingColor;
 void main(void)
 {
 //重点在于理解normalMatrix这个常量，是怎么得到的？ 是由每次渲染前制定（即初始化的）
+// normalMatrix 是模型在世界坐标系中的朝向矩阵
+	//作用法线之后，法线就是其在世界坐标中的朝向
 	vec3 vEyeNormal = normalMatrix * vNormal;//?? 获取表面法线的视觉坐标？？
 
 	//顶点相对于世界原点的位置——即世界位置；mv是摄像机（画刷）到模型的3D定位作用矩阵
